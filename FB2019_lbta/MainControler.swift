@@ -8,10 +8,11 @@
 
 import UIKit
 import LBTATools
+import TinyConstraints
 
 class PostCell: LBTAListCell<String> {
     
-    let imageView = UIImageView(backgroundColor: .red)
+    let imageView = UIImageView(backgroundColor: .blue)
     let nameLabel = UILabel(text: "Name Label")
     let dateLabel = UILabel(text: "Friday at 11:11AM")
     let postTextLabel = UILabel(text: "Here is my post text")
@@ -19,6 +20,28 @@ class PostCell: LBTAListCell<String> {
     
     override func setupViews() {
         backgroundColor = .white
+//        addSubview(imageView)
+//        addSubview(nameLabel)
+//        addSubview(dateLabel)
+//        addSubview(postTextLabel)
+//        addSubview(imageViewGrid)
+//        imageView.topToSuperview(offset: 12)
+//        imageView.leadingToSuperview(offset: 12)
+//        imageView.height(40)
+//        imageView.width(40)
+//        nameLabel.top(to: imageView)
+//        nameLabel.leadingToTrailing(of: imageView, offset: 12)
+//        dateLabel.topToBottom(of: nameLabel, offset: 8)
+//        dateLabel.leading(to: nameLabel)
+//
+//        postTextLabel.topToBottom(of: imageView, offset: 8)
+//        postTextLabel.leading(to: imageView)
+//        postTextLabel.trailingToSuperview(offset: 12)
+//
+//        imageViewGrid.topToBottom(of: postTextLabel, offset: 8)
+//        imageViewGrid.leading(to: postTextLabel)
+//        imageViewGrid.trailingToSuperview(offset: 12)
+//        imageViewGrid.bottomToSuperview(offset: -8)
         
         stack(hstack(imageView.withHeight(40).withWidth(40),
                      stack(nameLabel, dateLabel),
@@ -44,21 +67,21 @@ class MainController: LBTAListController<PostCell, String>, UICollectionViewDele
     }
 }
 
-import SwiftUI
-struct MainPreview: PreviewProvider {
-    static var previews: some View {
-//        Text("main preview 123123")
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<MainPreview.ContainerView>) -> UIViewController {
-            return MainController()
-        }
-        
-        func updateUIViewController(_ uiViewController: MainPreview.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<MainPreview.ContainerView>) {
-            
-        }
-    }
-}
+//import SwiftUI
+//struct MainPreview: PreviewProvider {
+//    static var previews: some View {
+////        Text("main preview 123123")
+//        ContainerView().edgesIgnoringSafeArea(.all)
+//    }
+//    
+//    struct ContainerView: UIViewControllerRepresentable {
+//        
+//        func makeUIViewController(context: UIViewControllerRepresentableContext<MainPreview.ContainerView>) -> UIViewController {
+//            return MainController()
+//        }
+//        
+//        func updateUIViewController(_ uiViewController: MainPreview.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<MainPreview.ContainerView>) {
+//            
+//        }
+//    }
+//}

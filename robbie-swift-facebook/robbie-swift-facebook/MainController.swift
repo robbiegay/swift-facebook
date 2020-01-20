@@ -20,7 +20,6 @@ class PostCell: LBTAListCell<String> {
     
     override func setupViews() {
         backgroundColor = .white
-        
         stack(hstack(imageView.withHeight(40).withWidth(40),
                      stack(nameLabel, dateLabel),
                      spacing: 8
