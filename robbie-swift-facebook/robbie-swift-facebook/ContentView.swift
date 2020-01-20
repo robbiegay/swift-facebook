@@ -1,16 +1,16 @@
 //
 //  ContentView.swift
-//  FB2019_lbta
+//  robbie-swift-facebook
 //
-//  Created by Brian Voong on 10/30/19.
-//  Copyright © 2019 Brian Voong. All rights reserved.
+//  Created by Robbie Gay on 1/20/20.
+//  Copyright © 2020 robbiegay. All rights reserved.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, 12313213!")
+        Text("Hello World")
     }
 }
 

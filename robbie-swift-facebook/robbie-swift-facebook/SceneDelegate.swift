@@ -1,9 +1,9 @@
 //
 //  SceneDelegate.swift
-//  FB2019_lbta
+//  robbie-swift-facebook
 //
-//  Created by Brian Voong on 10/30/19.
-//  Copyright © 2019 Brian Voong. All rights reserved.
+//  Created by Robbie Gay on 1/20/20.
+//  Copyright © 2020 robbiegay. All rights reserved.
 //
 
 import UIKit
@@ -25,10 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-//            window.rootViewController = UIHostingController(rootView: contentView)
-            
             window.rootViewController = MainController()
-            
             self.window = window
             window.makeKeyAndVisible()
         }
