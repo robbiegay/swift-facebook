@@ -105,7 +105,7 @@ class StoriesController: LBTAListController<StoryPhotoCell, String>, UICollectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.items = ["headshot-short-hair", "Bootcamp Headshot Robbie", "Robbie Rushmore Parking Garage 2", "headshot-short-hair", "Bootcamp Headshot Robbie", "Robbie Rushmore Parking Garage 2"]
+        self.items = ["headshot-short-hair", "Bootcamp Headshot Robbie", "Robbie Rushmore Parking Garage 2", "Anna and Robbie Niagra 2", "Robbie (Annas First Edit)"]
     }
 }
 
