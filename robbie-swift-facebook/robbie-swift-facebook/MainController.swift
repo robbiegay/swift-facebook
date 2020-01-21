@@ -124,6 +124,23 @@ class MainController: LBTAListHeaderController<PostCell, String, StoryHeader>, U
         collectionView.backgroundColor = .init(white: 0.9, alpha: 1)
         
         self.items = ["Hello", "WORLD", "1", "2", "1", "2", "1", "2"]
+        
+        setupNavBar()
+    }
+    
+    let fbLogoImageView = UIImageView(image: UIImage(named: "fb_logo"), contentMode: .scaleAspectFit)
+    
+    fileprivate func setupNavBar() {
+        let width = view.frame.width - 120 - 16
+        
+        let titleView = UIView(backgroundColor: .yellow)
+        titleView.frame = .init(x: 0, y: 0, width: width, height: 50)
+        
+        titleView.hstack(fbLogoImageView.withWidth(120), UIView(backgroundColor: .red).withWidth(width))
+        
+        navigationItem.titleView = titleView
+        
+//        navigationItem.title = "Facebook"
     }
     
     func collectionView(_ collectionView: UICollectionView,
