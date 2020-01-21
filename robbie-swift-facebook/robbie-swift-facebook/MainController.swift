@@ -128,19 +128,35 @@ class MainController: LBTAListHeaderController<PostCell, String, StoryHeader>, U
         setupNavBar()
     }
     
-    let fbLogoImageView = UIImageView(image: UIImage(named: "fb_logo"), contentMode: .scaleAspectFit)
+    let fbLogoImageView = UIImageView(image: UIImage(named: "robbiebook"), contentMode: .scaleAspectFit)
+     let searchButton = UIButton(title: "search", titleColor: .black)
     
     fileprivate func setupNavBar() {
-        let width = view.frame.width - 120 - 16
+        let width = view.frame.width - 120 - 16 - 60
         
-        let titleView = UIView(backgroundColor: .yellow)
+        let titleView = UIView(backgroundColor: .clear)
         titleView.frame = .init(x: 0, y: 0, width: width, height: 50)
+    
         
-        titleView.hstack(fbLogoImageView.withWidth(120), UIView(backgroundColor: .red).withWidth(width))
+        titleView.hstack(fbLogoImageView.withWidth(120), UIView(backgroundColor: .clear).withWidth(width), searchButton.withWidth(60))
         
         navigationItem.titleView = titleView
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let safeAreaTop = UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.safeAreaInsets.top ?? 0
         
-//        navigationItem.title = "Facebook"
+        let magicalSafeAreaTop: CGFloat = safeAreaTop + (navigationController?.navigationBar.frame.height ?? 0)
+        print(scrollView.contentOffset.y)
+        
+        let offset = scrollView.contentOffset.y + magicalSafeAreaTop
+        
+        let alpha: CGFloat = 1 - ((scrollView.contentOffset.y + magicalSafeAreaTop) / magicalSafeAreaTop)
+        
+        [fbLogoImageView, searchButton].forEach{$0.alpha = alpha}
+//        fbLogoImageView.alpha = alpha
+        
+        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
     }
     
     func collectionView(_ collectionView: UICollectionView,
