@@ -7,26 +7,25 @@
 //
 
 import UIKit
-//import SwiftUI
 import LBTATools
 
 class PostCell: LBTAListCell<String> {
     
-    let imageView = UIImageView(backgroundColor: .red)
+    let imageView = UIImageView(backgroundColor: .blue)
     let nameLabel = UILabel(text: "Name Label")
     let dateLabel = UILabel(text: "Friday at 11:11AM")
     let postTextLabel = UILabel(text: "Here is my post text")
-    let imageViewGrid = UIView(backgroundColor: .yellow)
+//    let imageViewGrid = UIView(backgroundColor: .yellow)
+    let photosGridController = PhotosGridController()
     
     override func setupViews() {
         backgroundColor = .white
-        
         stack(hstack(imageView.withHeight(40).withWidth(40),
                      stack(nameLabel, dateLabel),
                      spacing: 8
             ).padLeft(12).padRight(12).padTop(12),
               postTextLabel,
-              imageViewGrid,
+              photosGridController.view,
               spacing: 12)
     }
 }
@@ -43,13 +42,6 @@ class MainController: LBTAListController<PostCell, String>, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView,
         layout UICollectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width, height: 300)
+        return .init(width: view.frame.width, height: 400)
     }
 }
-
-//struct MainPreview: PreviewProvider {
-//    static var previews: some View {
-//        Text("Main Preview")
-//    }
-//}
-
